@@ -1,0 +1,56 @@
+import { PrismaService } from '../prisma/prisma.service';
+import { CreateMarcaDto } from './dto/create-marca.dto';
+import { UpdateMarcaDto } from './dto/update-marca.dto';
+export declare class MarcaService {
+    private prisma;
+    constructor(prisma: PrismaService);
+    create(createMarcaDto: CreateMarcaDto): import("@prisma/client").Prisma.Prisma__MarcaClient<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }, never, import("@prisma/client/runtime/library").DefaultArgs, import("@prisma/client").Prisma.PrismaClientOptions>;
+    findAll(): import("@prisma/client").Prisma.PrismaPromise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }[]>;
+    findAllArchivadas(): import("@prisma/client").Prisma.PrismaPromise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }[]>;
+    findOne(id: number): Promise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }>;
+    update(id: number, updateMarcaDto: UpdateMarcaDto): Promise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }>;
+    remove(id: number): Promise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }>;
+    restore(id: number): Promise<{
+        id: number;
+        nombre: string;
+        archivado: boolean;
+        fechaCreacion: Date;
+        fechaActualizacion: Date;
+    }>;
+}
