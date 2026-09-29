@@ -16,9 +16,13 @@ import { PresupuestoModule } from './presupuesto/presupuesto.module';
 import { ProvinciaModule } from './provincia/provincia.module';
 import { LocalidadModule } from './localidad/localidad.module';
 import { ScheduleModule } from '@nestjs/schedule';
+import { TarjetaModule } from './tarjeta/tarjeta.module';
+import { BancoModule } from './banco/banco.module';
+import { PlanModule } from './plan/plan.module';
+import { FinanciacionModule } from './financiacion/financiacion.module';
 
 @Module({
- imports: [ScheduleModule.forRoot(), PrismaModule, ProductoModule, DepositoModule, StockModule, CategoriaNivel1Module, CategoriaNivel2Module, MarcaModule, ProveedorModule, SucursalModule, UsuarioModule, ClienteModule, PresupuestoModule, ProvinciaModule, LocalidadModule],
+ imports: [ScheduleModule.forRoot(), PrismaModule, ProductoModule, DepositoModule, StockModule, CategoriaNivel1Module, CategoriaNivel2Module, MarcaModule, ProveedorModule, SucursalModule, UsuarioModule, ClienteModule, PresupuestoModule, ProvinciaModule, LocalidadModule, TarjetaModule, BancoModule, PlanModule, FinanciacionModule],
   controllers: [AppController],
   providers: [AppService],
 })

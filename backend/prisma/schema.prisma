@@ -55,7 +55,6 @@ model Localidad {
   sucursales         Sucursal[]
   clientes           Cliente[]
 
-  @@unique([nombre, provinciaId])
   @@map("localidades")
 }
 
@@ -311,4 +310,77 @@ model PresupuestoItem {
 
   @@map("presupuesto_items")
 }
+
+enum TipoTarjeta {
+  CREDITO
+  DEBITO
+}
+
+model Tarjeta {
+  id                 Int         @id @default(autoincrement())
+  nombre             String
+  tipo               TipoTarjeta
+  archivado          Boolean     @default(false)
+  fechaCreacion      DateTime    @default(now())
+  fechaActualizacion DateTime    @updatedAt
+  planes             Plan[]
+  simulaciones SimulacionFinanciacion[]
+
+
+  @@map("tarjetas")
+}
+
+model Banco {
+  id                 Int      @id @default(autoincrement())
+  nombre             String
+  archivado          Boolean  @default(false)
+  fechaCreacion      DateTime @default(now())
+  fechaActualizacion DateTime @updatedAt
+  planes             Plan[]
+  simulaciones SimulacionFinanciacion[]
+
+
+  @@map("bancos")
+}
+
+model Plan {
+  id                 Int      @id @default(autoincrement())
+  tarjetaId          Int
+  bancoId            Int
+  cantidadCuotas     Int
+  tasaFinanciacion   Decimal  @db.Decimal(5, 2)
+  observaciones      String?
+  archivado          Boolean  @default(false)
+  fechaCreacion      DateTime @default(now())
+  fechaActualizacion DateTime @updatedAt
+  tarjeta            Tarjeta  @relation(fields: [tarjetaId], references: [id])
+  banco              Banco    @relation(fields: [bancoId], references: [id])
+  simulaciones SimulacionFinanciacion[]
+
+
+  @@unique([tarjetaId, bancoId, cantidadCuotas])
+  @@map("planes")
+}
+
+model SimulacionFinanciacion {
+  id                 Int      @id @default(autoincrement())
+  monto              Decimal  @db.Decimal(12, 2)
+  montoTotal         Decimal  @db.Decimal(12, 2)
+  montoCuota         Decimal  @db.Decimal(12, 2)
+  cantidadCuotas     Int
+  tasaFinanciacion   Decimal  @db.Decimal(5, 2)
+  tarjetaId          Int
+  bancoId            Int
+  planId             Int
+  fechaCreacion      DateTime @default(now())
+  tarjeta            Tarjeta  @relation(fields: [tarjetaId], references: [id])
+  banco              Banco    @relation(fields: [bancoId], references: [id])
+  plan               Plan     @relation(fields: [planId], references: [id])
+
+  @@map("simulaciones_financiacion")
+}
+
+
+
+
 

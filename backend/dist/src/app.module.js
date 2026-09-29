@@ -25,12 +25,16 @@ const presupuesto_module_1 = require("./presupuesto/presupuesto.module");
 const provincia_module_1 = require("./provincia/provincia.module");
 const localidad_module_1 = require("./localidad/localidad.module");
 const schedule_1 = require("@nestjs/schedule");
+const tarjeta_module_1 = require("./tarjeta/tarjeta.module");
+const banco_module_1 = require("./banco/banco.module");
+const plan_module_1 = require("./plan/plan.module");
+const financiacion_module_1 = require("./financiacion/financiacion.module");
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [schedule_1.ScheduleModule.forRoot(), prisma_module_1.PrismaModule, producto_module_1.ProductoModule, deposito_module_1.DepositoModule, stock_module_1.StockModule, categoria_nivel1_module_1.CategoriaNivel1Module, categoria_nivel2_module_1.CategoriaNivel2Module, marca_module_1.MarcaModule, proveedor_module_1.ProveedorModule, sucursal_module_1.SucursalModule, usuario_module_1.UsuarioModule, cliente_module_1.ClienteModule, presupuesto_module_1.PresupuestoModule, provincia_module_1.ProvinciaModule, localidad_module_1.LocalidadModule],
+        imports: [schedule_1.ScheduleModule.forRoot(), prisma_module_1.PrismaModule, producto_module_1.ProductoModule, deposito_module_1.DepositoModule, stock_module_1.StockModule, categoria_nivel1_module_1.CategoriaNivel1Module, categoria_nivel2_module_1.CategoriaNivel2Module, marca_module_1.MarcaModule, proveedor_module_1.ProveedorModule, sucursal_module_1.SucursalModule, usuario_module_1.UsuarioModule, cliente_module_1.ClienteModule, presupuesto_module_1.PresupuestoModule, provincia_module_1.ProvinciaModule, localidad_module_1.LocalidadModule, tarjeta_module_1.TarjetaModule, banco_module_1.BancoModule, plan_module_1.PlanModule, financiacion_module_1.FinanciacionModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })
