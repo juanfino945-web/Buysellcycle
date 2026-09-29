@@ -23,6 +23,13 @@ import UsuariosListPage from '../Usuarios/UsuariosListPage';
 import UsuarioFormPage from '../Usuarios/UsuarioFormPage';
 import ProveedoresListPage from '../Proveedor/ProveedoresListPage';
 import ProveedorFormPage from '../Proveedor/ProveedorFormPage';
+import TarjetaListPage  from '../Tarjeta/TarjetasListPage';
+import TarjetaFormPage  from '../Tarjeta/TarjetaFormPage';
+import BancosListPage from '../Banco/BancosListPage';
+import BancoFormPage from '../Banco/BancoFormPage';
+import PlanesListPage from '../Plan/PlanesListPage';
+import PlanFormPage from '../Plan/PlanFormPage';
+import SimularFinanciacionPage from '../Financiacion/SimularFinanciacionPage';
 
 export default function AppRouter() {
   return (
@@ -73,6 +80,20 @@ export default function AppRouter() {
           <Route path="/proveedores" element={<ProveedoresListPage />} />
           <Route path="/proveedores/nuevo" element={<ProveedorFormPage />} />
           <Route path="/proveedores/:id/editar" element={<ProveedorFormPage />} />
+
+          <Route path="tarjetas" element={<TarjetaListPage />} />
+          <Route path="tarjetas/nueva" element={<TarjetaFormPage />} />
+          <Route path="tarjetas/:id/editar" element={<TarjetaFormPage />} />
+
+          <Route path="bancos" element={<BancosListPage />} />
+          <Route path="bancos/nuevo" element={<BancoFormPage />} />
+          <Route path="bancos/:id/editar" element={<BancoFormPage />} />
+
+          <Route path="planes" element={<PlanesListPage />} />
+          <Route path="planes/nuevo" element={<PlanFormPage />} />
+          <Route path="planes/:id/editar" element={<PlanFormPage />} />
+
+          <Route path="simular-financiacion" element={<SimularFinanciacionPage />} />
         </Route>
       </Routes>
     </BrowserRouter>

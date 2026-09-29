@@ -14,6 +14,10 @@ import {
   ContactsOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
+  CreditCardOutlined,
+  BankOutlined,
+  PercentageOutlined,
+  CalculatorOutlined,
 } from '@ant-design/icons';
 
 const { Sider, Content, Header } = Layout;
@@ -30,6 +34,9 @@ const nombresPorRuta: Record<string, string> = {
   '/stock': 'Stock',
   '/usuarios': 'Usuarios',
   '/proveedores': 'Proveedores',
+  '/tarjetas': 'Tarjetas',
+  '/bancos': 'Bancos',
+  '/planes': 'Planes',
 };
 
 const itemsMenu = [
@@ -59,6 +66,22 @@ const itemsMenu = [
     key: '/proveedores',
     icon: <UserOutlined />,
     label: <Link to="/proveedores">Proveedores</Link>,
+  },
+
+  {
+    key: '/proveedores',
+    icon: <UserOutlined />,
+    label: <Link to="/proveedores">Proveedores</Link>,
+  },
+
+  { key: '/tarjetas', icon: <CreditCardOutlined />, label: <Link to="/tarjetas">Tarjetas</Link> },
+  { key: '/bancos', icon: <BankOutlined />, label: <Link to="/bancos">Bancos</Link> },
+  { key: '/planes', icon: <PercentageOutlined />, label: <Link to="/planes">Planes</Link> },
+
+  {
+  key: '/simular-financiacion',
+  icon: <CalculatorOutlined />,
+  label: <Link to="/simular-financiacion">Simular Financiación</Link>,
   },
 ];
 
